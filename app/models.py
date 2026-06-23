@@ -12,7 +12,7 @@ class Post(Base):
     content     = Column(String, nullable=False)
     published   = Column(Boolean, nullable=False, server_default='TRUE')
     created_at  = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text('now()'))
-    user_id     = Column(Integer, ForeignKey('users.id', ondelete='CASCA\DE'), nullable=False)
+    user_id     = Column(Integer, ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
     user        = relationship('User')
 
 class User(Base):
@@ -21,10 +21,9 @@ class User(Base):
     email       = Column(String, nullable=False, unique=True)
     password    = Column(String, nullable=False)
     created_at  = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text('now()'))
-    phone_number= Column(String, nullable=False)
 
 
 class Like(Base):
     __tablename__ = 'likes'
-    user_id     = Column(Integer, ForeignKey('users.id', onupdate='CASCADE'), nullable=False, primary_key=True)
-    post_id     = Column(Integer, ForeignKey('posts.id', onupdate='CASCADE'), nullable=False, primary_key=True)
+    user_id     = Column(Integer, ForeignKey('users.id', ondelete='CASCADE'), nullable=False, primary_key=True)
+    post_id     = Column(Integer, ForeignKey('posts.id', ondelete='CASCADE'), nullable=False, primary_key=True)

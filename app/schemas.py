@@ -11,7 +11,7 @@ class UserOut(BaseModel):
     id: int
     created_at: datetime
     class Config:
-        orm_mode = True
+        from_attributes = True
         
 class UserLogin(BaseModel):
     email: EmailStr
@@ -32,7 +32,7 @@ class PostResponse(PostBase):
 
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class Token(BaseModel):
     access_token : str

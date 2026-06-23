@@ -1,8 +1,8 @@
-"""Create posts table
+"""test
 
-Revision ID: ac7c48477392
+Revision ID: 28be4343506a
 Revises: 
-Create Date: 2026-06-20 12:17:40.547642
+Create Date: 2026-06-22 11:39:37.730842
 
 """
 from typing import Sequence, Union
@@ -12,23 +12,18 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'ac7c48477392'
+revision: str = '28be4343506a'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
 
+
 def upgrade() -> None:
     """Upgrade schema."""
-    op.create_table(
-        'Posts',
-        sa.Column('id', sa.Integer(), primary_key=True, nullable=False),
-        sa.Column('title', sa.String(), nullable=False),
-        sa.Column('content', sa.String(), nullable=False)
-                    )
+    op.drop_column('users', 'phone_number')
 
 
 def downgrade() -> None:
     """Downgrade schema."""
-    op.drop_table('posts')
-
+    op.drop_column('users', 'phone_number')
