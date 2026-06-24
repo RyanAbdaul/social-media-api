@@ -6,14 +6,14 @@ on: [push, pull_request]
 jobs:
   job1:
     env:
-      SECRET_KEY: 8072dc65800d9d5d1e4bcb6a7c0744ec9076628263f6fa1c51bb172bc8425273
-      ALGORITHM: HS256
-      ACCESS_TOKEN_EXPIRE_MINUTES: 30
-      DATABASE_USERNAME: postgres.dvgaegpujvioxbzpuumm
-      DATABASE_PASSWORD: Ry%40ng%23200%266th
-      DATABASE_NAME: postgres
-      PORT: 6543
-      HOST: aws-0-eu-west-1.pooler.supabase.com
+      SECRET_KEY: ${{secrets.SECRET_KEY}}
+      ALGORITHM: ${{secrets.ALGORITHM}}
+      ACCESS_TOKEN_EXPIRE_MINUTES: ${{secrets.ACCESS_TOKEN_EXPIRE_MINUTES}}
+      DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
+      DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORDZ}}
+      DATABASE_NAME: ${{secrets.DATABASE_NAME}}
+      PORT: ${{secrets.DATABASE_PORT}}
+      HOST: ${{secrets.DATABASE_HOSTNAME}}
     runs-on: ubuntu-latest
     steps:
       - name: Pull git repo
