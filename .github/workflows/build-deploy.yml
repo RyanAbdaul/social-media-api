@@ -13,7 +13,7 @@ jobs:
       DATABASE_PASSWORD=Ry%40ng%23200%266th
       DATABASE_NAME=postgres
       PORT=6543
-HOST=aws-0-eu-west-1.pooler.supabase.com
+      HOST=aws-0-eu-west-1.pooler.supabase.com
 
     runs-on: ubuntu-latest
     steps:
