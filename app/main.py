@@ -4,8 +4,10 @@ from .database import engine
 from .routers import post, user, auth, like
 from fastapi.middleware.cors import CORSMiddleware
 
-models.Base.metadata.create_all(bind=engine)
-
+# models.Base.metadata.create_all(bind=engine)
+'''
+    To run program for developmenet purposes use "run_app_dev"
+'''
 
 app = FastAPI()
 

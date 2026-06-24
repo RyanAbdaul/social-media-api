@@ -1,0 +1,28 @@
+version: '3'
+services:
+    api:
+        build: .
+        ports:
+            - 8000:8000
+        volumes:
+            - ./:/usr/src/app:ro
+        command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+        environment:
+            - SECRET_KEY=8072dc65800d9d5d1e4bcb6a7c0744ec9076628263f6fa1c51bb172bc8425273
+            - ALGORITHM=HS256
+            - ACCESS_TOKEN_EXPIRE_MINUTES=30
+            - DATABASE_USERNAME=postgres.dvgaegpujvioxbzpuumm
+            - DATABASE_PASSWORD=Ry%40ng%23200%266th
+            - DATABASE_NAME=postgres
+            - DATABASE_PORT=6543
+            - DATABASE_HOST=aws-0-eu-west-1.pooler.supabase.com
+    
+#     postgres:
+#         image: "postgres:16"
+#         environment:
+#             - POSTGRES_DB=postgres
+#             - POSTGRES_PASSWORD=Ry%40ng%23200%266th
+#         volumes:
+#             - postgres_db:/var/lib/postgresql/data
+# volumes:
+#     postgres_db:

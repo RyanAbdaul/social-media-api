@@ -1,0 +1,25 @@
+version: '3'
+services:
+    api:
+        image: ryanabdaulaziz/fastapi
+        ports:
+            - 8000:8000
+        environment:
+            - SECRET_KEY=${SECRET_KEY}
+            - ALGORITHM=${ALGORITHM}
+            - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES}
+            - DATABASE_USERNAME=postgres.${DATABASE_USERNAME}
+            - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+            - DATABASE_NAME=${DATABASE_NAME}
+            - DATABASE_PORT=${DATABASE_PORT}
+            - DATABASE_HOST=${DATABASE_HOST}
+    
+#     postgres:
+#         image: "postgres:16"
+#         environment:
+#             - POSTGRES_DB=postgres
+#             - POSTGRES_PASSWORD=Ry%40ng%23200%266th
+#         volumes:
+#             - postgres_db:/var/lib/postgresql/data
+# volumes:
+#     postgres_db:
